@@ -3,13 +3,14 @@
   import { getAddress } from '@ethersproject/address';
   import { CloudflareProvider } from '@ethersproject/providers';
   import { setDefaults as setToast, toast } from 'bulma-toast';
+  import Footer from './Footer.svelte';
 
   let input = null;
   let faucetInfo = {
     account: '0x0000000000000000000000000000000000000000',
     network: 'testnet',
     payout: 1,
-    symbol: 'ETH',
+    symbol: 'GEMU',
     hcaptcha_sitekey: '',
   };
 
@@ -124,26 +125,11 @@
         <div class="container">
           <div class="navbar-brand">
             <a class="navbar-item" href="../..">
-              <span class="icon">
-                <i class="fa fa-bath" />
-              </span>
-              <span><b>{faucetInfo.symbol} Faucet</b></span>
+              <!-- <span class="icon">
+                <img src="/logo.svg" alt="Gemuchain Logo" />
+              </span> -->
+              <span class="icon-text"><img src="/logo-full.svg" alt="Gemuchain text" /></span>
             </a>
-          </div>
-          <div id="navbarMenu" class="navbar-menu">
-            <div class="navbar-end">
-              <span class="navbar-item">
-                <a
-                  class="button is-white is-outlined"
-                  href="https://github.com/chainflag/eth-faucet"
-                >
-                  <span class="icon">
-                    <i class="fa fa-github" />
-                  </span>
-                  <span>View Source</span>
-                </a>
-              </span>
-            </div>
           </div>
         </div>
       </nav>
@@ -153,54 +139,151 @@
       <div class="container has-text-centered">
         <div class="column is-6 is-offset-3">
           <h1 class="title">
-            Receive {faucetInfo.payout}
-            {faucetInfo.symbol} per request
+            Gēmu faucet
           </h1>
-          <h2 class="subtitle">
-            Serving from {faucetInfo.account}
-          </h2>
-          <div id="hcaptcha" data-size="invisible"></div>
-          <div class="box">
-            <div class="field is-grouped">
-              <p class="control is-expanded">
-                <input
-                  bind:value={input}
-                  class="input is-rounded"
-                  type="text"
-                  placeholder="Enter your address or ENS name"
-                />
+          <div class="details-form">
+            <ul class="details-items">
+              <li>
+                <p><b>RPC </b></p>
+                <a href="https://gemutest-rpc.gemuchain.io">https://gemutest-rpc.gemuchain.io</a>
+              </li>
+              <li>
+                <p><b>Bridge </b></p>
+                <a href="https://gemutest-bridge.gemuchain.io">https://gemutest-bridge.gemuchain.io</a>
+              </li>
+              <li>
+                <p><b>Explorer </b></p>
+                <a href="https://gemutest-explorer.gemuchain.io">https://gemutest-explorer.gemuchain.io</a>
+              </li>
+              <li>
+                <p><b>ChainID </b></p>
+                <p>1903648807</p>
+              </li>
+            </ul>
+            <div class="subtitle">
+              <p>
+                You can claim {faucetInfo.payout} {faucetInfo.symbol} per 24 hours
               </p>
-              <p class="control">
-                <button
-                  on:click={handleRequest}
-                  class="button is-primary is-rounded"
-                >
-                  Request
-                </button>
-              </p>
+            </div>
+            <div id="hcaptcha" data-size="invisible"></div>
+            <div class="box">
+              <div class="field is-grouped">
+                <p class="control is-expanded">
+                  <input
+                    bind:value={input}
+                    class="input"
+                    type="text"
+                    placeholder="Enter your address or ENS name"
+                  />
+                </p>
+                <p class="control">
+                  <button
+                    on:click={handleRequest}
+                    class="button is-primary"
+                  >
+                    Request
+                  </button>
+                </p>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
   </section>
+
+  <Footer />
 </main>
 
 <style>
   .hero.is-info {
     background:
       linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-      url('/background.jpg') no-repeat center center fixed;
+      url('/background.webp') no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
   }
-  .hero .subtitle {
-    padding: 3rem 0;
-    line-height: 1.5;
+  .subtitle {
+    text-align: left;
   }
+  .icon {
+    margin-right: 12px;
+  }
+
   .box {
     border-radius: 19px;
+    background: none;
+    width: 90%;
   }
+
+  .is-primary {
+    background-color: #4228AB;
+    color: #FFFFFF;
+  }
+
+  .input {
+    background-color: #0D0B16;
+    border-color: #4228ab;
+    color: #FFFFFF;
+  }
+  
+  ::placeholder {
+    color: #989898;
+    opacity: 1; /* Firefox */
+  }
+
+  ::-ms-input-placeholder { /* Edge 12 -18 */
+    color: #989898;
+  }
+
+  ul {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  li {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .details-form {
+    /* form */
+
+    box-sizing: border-box;
+
+    /* Auto layout */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 32px;
+    gap: 20px;
+
+    width: 678px;
+    height: auto;
+
+    /* Dark blue brand/900 */
+    background: #0D0B16;
+    /* Grey/700 */
+    border: 1px solid #525252;
+
+    /* Inside auto layout */
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+
+  }
+
+  .details-items {
+    width: 90%;
+  }
+
+  a {
+  
+    text-align: left;
+  }
+
 </style>
