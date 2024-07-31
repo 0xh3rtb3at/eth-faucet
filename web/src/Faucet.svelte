@@ -242,6 +242,10 @@
       url('/background.webp') no-repeat center center fixed;
     background-size: cover;
   }
+
+  .title {
+    text-align: center;
+  }
   .subtitle {
     text-align: left;
   }
