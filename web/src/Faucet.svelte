@@ -110,6 +110,7 @@
 
 <svelte:head>
   {#if mounted && faucetInfo.hcaptcha_sitekey}
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <script
       src="https://hcaptcha.com/1/api.js?onload=hcaptchaOnLoad&render=explicit"
       async
@@ -136,12 +137,13 @@
     </div>
 
     <div class="hero-body">
-      <div class="container has-text-centered">
-        <div class="column is-6 is-offset-3">
-          <h1 class="title">
-            Gēmu faucet
-          </h1>
-          <div class="details-form">
+      <div class="container">
+        <div class="columns is-centered">
+          <div class="column is-12-mobile is-10-tablet is-8-desktop">
+            <h1 class="title">
+              Gēmu faucet
+            </h1>
+            <div class="details-form">
             <ul class="details-items">
               <li>
                 <p><b>RPC </b></p>
@@ -187,6 +189,7 @@
               </div>
             </div>
           </div>
+          </div>
         </div>
       </div>
     </div>
@@ -200,9 +203,6 @@
     background:
       linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
       url('/background.webp') no-repeat center center fixed;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
     background-size: cover;
   }
   .subtitle {
@@ -215,7 +215,9 @@
   .box {
     border-radius: 19px;
     background: none;
-    width: 90%;
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
   }
 
   .is-primary {
@@ -231,10 +233,10 @@
   
   ::placeholder {
     color: #989898;
-    opacity: 1; /* Firefox */
+    opacity: 1;
   }
 
-  ::-ms-input-placeholder { /* Edge 12 -18 */
+  ::-ms-input-placeholder {
     color: #989898;
   }
 
@@ -248,42 +250,45 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    flex-wrap: wrap;
   }
 
   .details-form {
-    /* form */
-
     box-sizing: border-box;
-
-    /* Auto layout */
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 32px;
-    gap: 20px;
-
-    width: 678px;
+    padding: 2rem;
+    gap: 1.25rem;
+    width: 100%;
+    max-width: 678px;
     height: auto;
-
-    /* Dark blue brand/900 */
     background: #0D0B16;
-    /* Grey/700 */
     border: 1px solid #525252;
-
-    /* Inside auto layout */
-    flex: none;
-    order: 1;
-    flex-grow: 0;
-
+    margin: 0 auto;
   }
 
   .details-items {
-    width: 90%;
+    width: 100%;
   }
 
   a {
-  
     text-align: left;
+    word-break: break-all;
   }
 
+  @media screen and (max-width: 768px) {
+    .details-form {
+      padding: 1rem;
+    }
+
+    li {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    li p, li a {
+      margin-bottom: 0.5rem;
+    }
+  }
 </style>

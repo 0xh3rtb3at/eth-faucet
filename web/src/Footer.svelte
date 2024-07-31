@@ -1,25 +1,24 @@
 <script>
+  // Your existing script content here
 </script>
 
-<section class="footer">
+<footer class="footer">
+  <div class="footer-content">
     <div class="logo-row">
       <img class="logo" src="/logo-full.svg" alt="gemuchain logo">
-      <!-- <div class="footer-menu-items">
-        <button class="footer-menu-button">Home</button>
-        <button class="footer-menu-button">Scalability</button>
-        <button class="footer-menu-button">Ecosystem</button>
-        <button class="footer-menu-button">Games</button>
-        <button class="footer-menu-button">Power of $Gēmu</button>
-        <button class="footer-menu-button">Bridge to Gēmu</button>
-      </div> -->
     </div>
     <div class="social-row">
       <div class="social">
-        <img class="cursor-pointer" src="/f-icons-telegram.svg" href="https://t.me/gemuchainchat" alt="twitter">
-        <img class="cursor-pointer" src="/f-icons-twitter.svg" href="https://x.com/Gemuchain" alt="twitter"></div>
-      <!-- <div class="legal">Privacy Policy Terms | Conditions</div> -->
+        <a href="https://t.me/gemuchainchat" target="_blank" rel="noopener noreferrer">
+          <img class="cursor-pointer" src="/f-icons-telegram.svg" alt="telegram">
+        </a>
+        <a href="https://x.com/Gemuchain" target="_blank" rel="noopener noreferrer">
+          <img class="cursor-pointer" src="/f-icons-twitter.svg" alt="twitter">
+        </a>
+      </div>
     </div>
-</section>
+  </div>
+</footer>
 
 <style>
   .footer {
@@ -41,35 +40,64 @@
 
   }
   
+
+  .footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
   .logo-row {
-    padding-bottom: 12px;
-    padding-left: 48px;
+    margin-bottom: 20px;
+  }
+
+  .logo {
+    max-width: 100%;
+    height: auto;
   }
 
   .social-row {
-    /* icons */
-
-    /* Auto layout */
     display: flex;
-    flex-direction: row;
     align-items: center;
-    padding-top: 12px;
-    padding-left: 48px;
-    gap: 32px;
+  }
 
-    width: 1003px;
-    height: 24px;
-
-
-    /* Inside auto layout */
-    flex: none;
-    order: 0;
-    flex-grow: 1;
-
+  .social {
+    display: flex;
+    gap: 24px;
   }
 
   .cursor-pointer {
-    padding-right: 24px;
+    width: 24px;
+    height: 24px;
   }
 
+  @media screen and (max-width: 768px) {
+    .footer {
+      padding: 15px;
+    }
+
+    .logo-row {
+      margin-bottom: 15px;
+    }
+
+    .social {
+      gap: 16px;
+    }
+  }
+
+  @media screen and (max-width: 480px) {
+    .footer {
+      padding: 10px;
+    }
+
+    .logo-row {
+      margin-bottom: 10px;
+    }
+
+    .social {
+      gap: 12px;
+    }
+  }
 </style>
