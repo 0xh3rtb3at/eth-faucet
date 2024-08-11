@@ -13,7 +13,7 @@
     symbol: 'GEMU',
     hcaptcha_sitekey: '',
     logo_url: '/gatewayfm-logo.svg',
-    background_url: 'background.jpg'
+    background_url: 'background.webp'
   };
 
   let mounted = false;
@@ -151,7 +151,7 @@
 </svelte:head>
 
 <main>
-  <section class="hero is-info is-fullheight" style='background-image: url({faucetInfo.background_url})'>
+  <section class="hero is-info is-fullheight" style='background-image: "/background.webp"'>
     <div class="hero-head">
       <nav class="navbar">
         <div class="container">
@@ -195,7 +195,7 @@
             </ul>
             <div class="subtitle">
               <p>
-                You can claim {faucetInfo.payout} {faucetInfo.symbol} per 24 hours
+                You can claim 1 GEMU per 24 hours
               </p>
             </div>
             <div id="hcaptcha" data-size="invisible"></div>
