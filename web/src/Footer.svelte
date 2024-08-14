@@ -29,7 +29,7 @@
     width: 100%;
     height: auto;
     background-color: transparent;
-    margin-top: 2px;
+    margin-top: 20px;
 
     /* Grey/800 */
     border-top: 1px solid #464646;

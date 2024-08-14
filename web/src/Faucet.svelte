@@ -195,7 +195,7 @@
             </ul>
             <div class="subtitle">
               <p>
-                You can claim 1 GEMU per 24 hours
+                You can claim 0.1 GEMU per 24 hours
               </p>
             </div>
             <div id="hcaptcha" data-size="invisible"></div>
