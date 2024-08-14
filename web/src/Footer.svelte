@@ -24,11 +24,12 @@
   .footer {
     box-sizing: border-box;
 
-    position: absolute;
+    position: relative;
     bottom: 0;
     width: 100%;
-    height: 154px;
+    height: auto;
     background-color: transparent;
+    margin-top: 2px;
 
     /* Grey/800 */
     border-top: 1px solid #464646;
@@ -76,6 +77,8 @@
   @media screen and (max-width: 768px) {
     .footer {
       padding: 15px;
+      position: relative;
+      bottom: 0;
     }
 
     .logo-row {
@@ -89,6 +92,8 @@
 
   @media screen and (max-width: 480px) {
     .footer {
+      position: relative;
+      bottom: 0;
       padding: 10px;
     }
 

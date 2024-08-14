@@ -231,17 +231,23 @@
 
 <style>
 
+  main {
+      background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/background.webp') no-repeat center center fixed;
+      background-size: cover;
+      width: 100vw;
+      height: auto;
+      display: inline-block;
+  }
+
+  .hero.is-info {
+    background-color: transparent !important;
+    color: #fff;
+  }
+
 	.icon-brand {
 		width: 5rem;
 		margin: 1rem;
 	}
-
-  .hero.is-info {
-    background:
-      linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-      url('/background.webp') no-repeat center center fixed;
-    background-size: cover;
-  }
 
   .title {
     text-align: center;
